@@ -1,0 +1,22 @@
+﻿@model CV.Web.Models.Entity.TblCertificate
+@{
+    ViewBag.Title = "AddCertificate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h4>SERTİFİKA GÜNCELLE</h4>
+<br />
+<form method="post">
+    @Html.Label("Alınan Kurum ")
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+    @Html.Label("Alınan Sertifika")
+    @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+    <br />
+    @Html.Label("Alınan Tarih:")
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">EKLE</button>
+</form>
+

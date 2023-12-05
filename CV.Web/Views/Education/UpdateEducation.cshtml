@@ -1,0 +1,31 @@
+﻿@model CV.Web.Models.Entity.TblMyTrainings
+@{
+    ViewBag.Title = "UpdateEducation";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h4> EĞİTİM EKLE</h4>
+<br />
+<form method="post">
+    @Html.Label("Üniversite Adı: ")
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+    @Html.Label("Fakülte:")
+    @Html.TextBoxFor(x => x.Subtitle1, new { @class = "form-control" })
+    <br />
+    @Html.Label("Bölüm:")
+    @Html.TextBoxFor(x => x.Subtitle2, new { @class = "form-control" })
+    <br />
+    @Html.Label("Genel Not Ortalaması")
+    @Html.TextBoxFor(x => x.GNO, new { @class = "form-control" })
+    <br />
+    @Html.Label("Başlangıç ve Bitiş Tarihi:")
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">GÜNCELLE</button>
+</form>
+
+
+
+
+

@@ -1,0 +1,32 @@
+﻿@using CV.Web.Models.Entity @*veri tabanını çağırdık entity içindeki*@
+@model List<TblCertificate>
+
+<div class="container">
+
+    <h2 class="section-title wow fadeInUp">SERTİFİKALAR</h2>
+
+    <div class="spacer" data-height="60"></div>
+
+    <div class="row blog-wrapper">
+        @foreach (var x in Model)
+        {
+            <div class="col-md-6">
+                <!-- Add this class to make items appear side by side -->
+                <!-- blog item -->
+                <div class="blog-item rounded bg-dark shadow-light wow fadeIn">
+                    <div class="thumb">
+                        <!-- You can add an image or content here if needed -->
+                    </div>
+                    <br />
+                    <div class="details">
+                        <h3 class="my-0 title"><a href="#">@x.Title</a></h3>
+                        <h4 class="my-0 title"><a href="#">@x.Description</a></h4>
+                        <ul class="list-inline meta mb-0 mt-2">
+                            <li class="list-inline-item">@x.Date.ToShortDateString()</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

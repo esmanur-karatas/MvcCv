@@ -1,0 +1,25 @@
+﻿@model CV.Web.Models.Entity.TblSocialMedia
+@{
+    ViewBag.Title = "UpdateSocialMedia";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h4> HESAPLARIMI DÜZENLE</h4>
+<br />
+<form method="post">
+    <br />
+    @Html.HiddenFor(x => x.ID)
+    <br />
+    @Html.Label("Sosyal Medya Hesap İsmi")
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <br />
+    @Html.Label("Sosyal Medya Linki")
+    @Html.TextBoxFor(x => x.Link, new { @class = "form-control" })
+    <br />
+    @Html.Label("Sosyal Media Icon")
+    @Html.TextBoxFor(x => x.icon, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info"><i class="fa fa-pencil-alt"></i>GÜNCELLE</button>
+</form>
+

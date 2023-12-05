@@ -1,0 +1,64 @@
+﻿@using CV.Web.Models.Entity
+@model List<TblCommunication>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <h3>İLETİŞİM FORMU</h3>
+                <!-- /.col -->
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="tab-pane" id="timeline">
+                                <!-- The timeline -->
+                                <div class="timeline timeline-inverse">
+                                    <!-- timeline time label -->
+                                    @foreach (var item in Model)
+                                    {
+                                        <div class="time-label">
+                                            <span class="bg-success">
+                                                @if (item.Date.HasValue)
+                                                {
+                                                    @item.Date.Value.ToShortDateString()
+                                                }
+                                                else
+                                                {
+                                                    // Null ise buraya ne yapmak istediğinizi ekleyebilirsiniz.
+                                                }
+                                            </span>
+                                        </div>
+
+                                        <div>
+                                            <i class="fas fa-comments bg-warning"></i>
+                                            <div class="timeline-item">
+                                                <span class="time"><i class="far fa-envelope">    &nbsp;</i>@item.Mail</span>
+                                                <h3 class="timeline-header"><a href="#">Gönderen: @item.NameSurname</a><br /> Konu: @item.Subject</h3>
+                                                <div class="timeline-body">
+                                                    Mesaj: @item.Message
+                                                </div>
+                                                <a href="/Contact/DeleteContact/@item.ID" class="btn btn-danger btn-sm">Sil</a>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            <!-- /.tab-content -->
+                        </div><!-- /.card-body -->
+                    </div>
+                    <!-- /.nav-tabs-custom -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+</body>
+</html>

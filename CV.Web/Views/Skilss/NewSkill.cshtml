@@ -1,0 +1,16 @@
+﻿@model CV.Web.Models.Entity.TblSkills
+@{
+    ViewBag.Title = "NewSkill";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h4> YENİ YETENEK EKLE</h4>
+<br />
+<form method="post">
+    @Html.Label("Deneyim")
+    @Html.TextBoxFor(x => x.Skill, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">EKLE</button>
+</form>
+

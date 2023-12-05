@@ -1,0 +1,9 @@
+﻿@using CV.Web.Models.Entity
+@model List<TblSocialMedia>
+<div class="intro">
+    @foreach (var item in Model)
+    {
+            <a class="social-icon light  mb-0 mt-4 list-inline-item" href="@item.Link"><i class="@item.icon"></i></a>
+       
+    }
+</div>

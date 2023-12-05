@@ -1,0 +1,101 @@
+﻿@using CV.Web.Models.Entity
+@model List<TblSocialMedia>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">HESAPLARIM</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <button class="btn btn-success" data-toggle="modal" data-target="#Modal1">YENİ HESAP EKLE  </button>
+                            <br\>
+                                <br />
+                                <br />
+                            </br\>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10px">ID</th>
+                                        <th>HESAPLARIM</th>
+                                        <th>LİNK</th>
+                                        <th>İCON</th>
+                                        <th>SİL</th>
+                                        <th>GÜNCELLE</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+
+                                        <tr>
+                                            <td>@item.ID</td>
+                                            <td>@item.Name</td>
+                                            <td>@item.Link</td>
+                                            <td>@item.icon</td>
+                                            <td>
+                                                <a href="/SocialMedia/DeleteSocialMedia/@item.ID" class="btn btn-danger btn-sm">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                    SİL
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("UpdateSocialMedia", "SocialMedia", new { id = item.ID })" class="btn btn-success btn-sm">
+                                                    <i class="fas fa-pencil-alt"></i>
+                                                    DÜZENLE
+                                                </a>
+                                            </td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    @*POPUP*@
+    <div class="modal" id="Modal1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Yeni Hesap Ekleme Penceresi</h2>
+                </div>
+                <form method="post" action="/SocialMedia/AddSocialMedia">
+                    <div class="modal-body">
+                        <label>Sosyal Medya İsmi</label>
+                        <input type="text" name="Name" class="form-control" />
+                        <br /> 
+                        <label>Sosyal Medya Linki</label>
+                        <input type="text" name="Link" class="form-control" />
+                        <br /> 
+                        <label>Sosyal Medya İconu</label>
+                        <input type="text" name="icon" class="form-control" />
+                        <br />
+                        <button class="btn btn-success">EKLE</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,70 @@
+﻿@using CV.Web.Models.Entity
+@model List<TblSkills>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">YETENEKLERİM</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <a href="/Skilss/NewSkill" class="btn btn-info">YETENEK EKLE</a>
+                            <br\>
+                                <br />
+                                <br />
+                            </br\>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10px">ID</th>
+                                        <th>YETENEKLERİM</th>
+                                        <th>SİL</th>
+                                        <th>GÜNCELLE</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+
+                                        <tr>
+                                            <td>@item.ID</td>
+                                            <td>@item.Skill</td>
+                                            <td>
+                                                <a href="/Skilss/DeleteSkill/@item.ID" class="btn btn-danger btn-sm">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                    SİL
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("EditSkill", "Skilss", new { id = item.ID })" class="btn btn-success btn-sm">
+                                                    <i class="fas fa-pencil-alt"></i>
+                                                    DÜZENLE
+                                                </a>
+                                            </td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+

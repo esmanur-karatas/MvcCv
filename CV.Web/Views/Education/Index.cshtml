@@ -1,0 +1,38 @@
+﻿@using CV.Web.Models.Entity
+@model List<TblMyTrainings>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>EĞİTİMLERİM</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>ÜNİVERSİTE</th>
+        <th>FAKÜLTE</th>
+        <th>BÖLÜM</th>
+        <th>GNO</th>
+        <th>TARİH</th>
+        <th>SİL</th>
+        <th>DÜZENLE</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Title</td>
+            <td>@item.Subtitle1</td>
+            <td>@item.Subtitle2</td>
+            <td>@item.GNO</td>
+            <td>@item.Date</td>
+            <td><a href="/Education/DeleteEducation/@item.ID" class="btn btn-danger"><i class="fas fa-trash-alt"></i>SİL</a></td>
+            <td><a href="/Education/UpdateEducation/@item.ID" class="btn btn-success"><i class="fas fa-pencil-alt"></i>DÜZENLE</a></td>
+        </tr>
+    }
+</table>
+<a href="/Education/AddEducation" class="btn btn-primary">Eğitim Ekle</a>
+
+
